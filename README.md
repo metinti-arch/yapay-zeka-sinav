@@ -1,5 +1,10 @@
 # yapay-zeka-sinav
-Yapay Zeka Eğitimi Online Sınav
+
+**Yapay Zeka Eğitimi — Online sınav** (statik sayfa + Google Apps Script + Google Sheets).
+
+> **FlowFit ile ilgisi yok.** Bu depo, FlowFit mobil uygulamasından bağımsız ayrı bir projedir (eğitim sınavı / sonuç e-postası / tablo kaydı). FlowFit kodu veya lisansları bu repoda yoktur.
+
+---
 
 ## Google Apps Script Kurulum
 
