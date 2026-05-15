@@ -8,7 +8,9 @@ Yapay Zeka Eğitimi Online Sınav
 3. `Deploy > Manage deployments > Edit` ekranında:
    - `Execute as`: **Me**
    - `Who has access`: **Anyone**
-4. Deploy sonrası oluşan `/exec` URL'sini `index.html` içindeki `SCRIPT_URL` alanına yazın.
+4. Deploy sonrası oluşan `/exec` URL'sini:
+   - `index.html` içindeki `SCRIPT_URL` değişkenine yazın;
+   - aynı bilgileri **`DEPLOYMENT.md`** dosyasındaki tabloya kopyalayın (bir sonraki deploy’da neyin aktif olduğunu unutmamak için).
 5. Apps Script'te `testManual()` çalıştırıp logda `{status:"ok"}` görün.
 
 Not: `Execute as: User accessing the web app` seçilirse, diğer kullanıcılar Sheet/Mail yetkisi olmadığı için sonuçlar yazılamayabilir.
