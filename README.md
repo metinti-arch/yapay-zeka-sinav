@@ -26,15 +26,23 @@ Not: `Execute as: User accessing the web app` seçilirse, diğer kullanıcılar 
 
 ### “The script does not have permission to perform that action” (mail)
 
-Bu hata **kod hatası değil**; Google hesabı `GmailApp` / `MailApp` için **OAuth izni vermemiş** demektir.
+Bu hata **kod hatası değil**; Google hesabı `GmailApp` / `MailApp` için **OAuth izni vermemiş** (veya token eski/kısıtlı) demektir.
 
-1. Apps Script editörde üstten **`testManual`** fonksiyonunu seç → **Run** (Çalıştır).
-2. **“Authorization required”** çıkarsa → **Review permissions** → Google hesabını seç.
-3. **“Google hasn’t verified this app”** uyarısı çıkabilir → **Advanced** → **Go to … (unsafe)** → devam et (kendi projen).
-4. Listede **Gmail** / **Send email on your behalf** / **Google Sheets** vb. → **Allow**.
-5. **Executions** panelinde tekrar **Run** → logda `emailSent: true` veya Sheet’te mail sütunu **OK** olmalı.
+**A) “Authorization required” / “Review permissions” çıkıyorsa**
 
-Projeye **`appsscript.json`** (repoda `apps-script/appsscript.json`) eklediysen: Apps Script sol menüde **Project Settings** → ilgili ayarlar veya dosyayı manuel ekle; bir sonraki çalıştırmada Google **yeni kapsamlar** için tekrar izin isteyebilir — yine **Allow** deyin.
+1. **Review permissions** → hesabı seç → **Advanced** → **Go to … (unsafe)** (kendi projen) → **Allow** (Gmail + Sheet + Mail).
 
-**Workspace (kurumsal) hesap:** Yönetici `script.google.com` / Gmail API kullanımını kısıtlıyorsa aynı hata görülür; IT’den “Apps Script + Gmail send” açılmasını isteyin.
+**B) Ekranda hiç izin penceresi çıkmıyorsa (senin ekran)**
+
+Google bazen **pencere göstermeden** bu hatayı yazar. Çoğunlukla: daha önce sadece **Sheet** onaylanmış, **mail kapsamları hiç tokena eklenmemiş**; veya eski token takılı kalmış.
+
+1. **Manifest:** Project settings → **Show "appsscript.json" in editor** → repodaki `apps-script/appsscript.json` **aynen** yapıştır → Kaydet.  
+2. **Kodu güncelle:** Repodaki `Code.gs` içindeki **`authorizeMailScopes`** fonksiyonu projede olsun (tüm dosyayı yapıştırmak en kolayı).  
+3. **Eski izni sil:** https://myaccount.google.com/permissions → **Google Apps Script** (veya ilgili) erişimini **Kaldır**.  
+4. Editörde **`authorizeMailScopes`** seç → **Run** → bu kez çoğu kullanıcıda **izin ekranı gelir** → **Allow**.  
+5. Ardından **`testManual`**.
+
+**Workspace (kurumsal) hesap:** Yönetici Gmail/Apps Script’i kısıtladıysa pencere hiç gelmez veya Allow sonrası yine bloklanır — IT gerekir.
+
+Projeye **`appsscript.json`** eklemediysen mail kapsamları hiç talep edilmemiş olabilir; mutlaka **B** adımlarını uygula.
 

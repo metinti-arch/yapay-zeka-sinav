@@ -65,6 +65,18 @@ function testManual() {
   Logger.log(JSON.stringify(result));
 }
 
+/**
+ * Gmail/Mail izin penceresi HIC cikmiyorsa:
+ * 1) https://myaccount.google.com/permissions — "Google Apps Script" / script erisimini kaldir
+ * 2) Projede appsscript.json (repodaki) yuklu olsun
+ * 3) Bu fonksiyonu Run et — OAuth diyalogu gelmeli — Allow
+ * 4) Sonra testManual
+ */
+function authorizeMailScopes() {
+  MailApp.getRemainingDailyQuota();
+  GmailApp.getInboxUnreadCount();
+}
+
 function processSubmission(data) {
   var submissionId = String(data.submissionId || "").trim();
   var name = String(data.name || "Bilinmiyor").trim();
