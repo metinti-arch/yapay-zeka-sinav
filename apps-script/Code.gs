@@ -193,16 +193,18 @@ function sendResultEmail(name, email, score, correct, wrong, empty, time, passed
       "</td></tr>" +
     "</table>";
 
+  // NOT: GmailApp'te `from: SENDER_EMAIL` yalnizca Gmail'de "Bu adres adina gonder"
+  // (Send mail as) dogrulanmissa calisir. Aksi halde Google genelde Exception atar
+  // ve mail hic gitmez. Once gonderen = deployment hesabi (guvenilir); Reply-To ile
+  // yanitlar SENDER_EMAIL'e gider.
   try {
     GmailApp.sendEmail(email, subject, body, {
       name: SENDER_NAME,
-      from: SENDER_EMAIL,
       replyTo: SENDER_EMAIL,
       htmlBody: htmlBody
     });
     return { sent: true, fallback: false };
   } catch (err) {
-    // Alias gonderimi basarisizsa teslimati kaybetmemek icin varsayilan hesapla gonder.
     try {
       MailApp.sendEmail({
         to: email,
@@ -215,9 +217,9 @@ function sendResultEmail(name, email, score, correct, wrong, empty, time, passed
       return { sent: true, fallback: true, aliasError: String(err) };
     } catch (fallbackErr) {
       throw new Error(
-        "Mail gonderimi basarisiz. Alias hata: " +
+        "Mail gonderimi basarisiz. GmailApp hata: " +
         String(err) +
-        " | Fallback hata: " +
+        " | MailApp hata: " +
         String(fallbackErr)
       );
     }
