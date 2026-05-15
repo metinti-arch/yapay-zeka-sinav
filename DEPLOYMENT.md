@@ -6,9 +6,9 @@
 |------|--------|
 | **Son güncelleme** | *(tarih / saat)* |
 | **Apps Script proje adı** | YZ Sınav |
-| **Web app URL** (`.../exec`) | `https://script.google.com/macros/s/BURAYA-TAM-URL/exec` |
-| **Deployment ID** (URL’de `/s/` ile `/exec` arası) | `AKfycb...` |
-| **Library URL** | *(Manage deployments’ta görünüyorsa buraya)* |
+| **Web app URL** (`.../exec`) | `[https://script.google.com/macros/s/BURAYA-TAM-URL/exec](https://script.google.com/macros/s/AKfycbwMu1jzZcUOJzvbvyCeJNIlTJHHFCqQZSSzN6S5cryZIsj6jDFyCqq31c8_D9NpbWyf/exec)` |
+| **Deployment ID** AKfycbwMu1jzZcUOJzvbvyCeJNIlTJHHFCqQZSSzN6S5cryZIsj6jDFyCqq31c8_D9NpbWyf|
+| **Library URL** | [*(Manage deployments’ta görünüyorsa buraya)*](https://script.google.com/macros/library/d/1YjrTGRf2H6d7N7TpRBklAyBx0FB7wceCQfFCpruhlC9Wz6EStADCsMXx/12) |
 | **Script düzenleyici** | `https://script.google.com/home/projects/SCRIPT_PROJECT_ID/edit` |
 
 ## `index.html` ile eşleşme
