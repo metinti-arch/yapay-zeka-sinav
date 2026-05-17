@@ -2,7 +2,7 @@ var SPREADSHEET_ID = "1IqKKZb8E7VR0x9rs0lzZ7yjm7P9ftJ7r1LbdrpOaOsE";
 var RESULTS_SHEET_NAME = "Sonuclar";
 var PASS_SCORE = 70;
 var SENDER_EMAIL = "metin@metintiryaki.com";
-var SENDER_NAME = "Newfound Creative Academy";
+var SENDER_NAME = "Metin Tiryaki — Yapay Zeka Eğitimi";
 
 function doGet(e) {
   try {
@@ -164,9 +164,9 @@ function sendResultEmail(name, email, score, correct, wrong, empty, time, passed
     "Durum: " + statusText + "\n\n" +
     resultNote + "\n\n" +
     "Eğitmen: Metin Tiryaki\n" +
-    "NEWFOUND CREATIVE ACADEMY\n";
+    "www.metintiryaki.com\n";
 
-  var logoUrl = "https://sinav.metintiryaki.com/assets/newfoundlogo-1024x264.jpg";
+  var logoUrl = "https://sinav.metintiryaki.com/assets/app_logo.png";
   var statusBg = passed ? "#E8F8EF" : "#FDEDEC";
   var statusColor = passed ? "#1E8449" : "#C0392B";
   var statusBorder = passed ? "#A9DFBF" : "#F5B7B1";
@@ -176,7 +176,7 @@ function sendResultEmail(name, email, score, correct, wrong, empty, time, passed
       '<tr><td align="center">' +
         '<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="640" style="width:640px;max-width:640px;background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;font-family:Segoe UI,Arial,sans-serif;color:#1f2937">' +
           '<tr><td style="padding:20px 24px 8px 24px">' +
-            '<img src="' + logoUrl + '" alt="Newfound Creative Academy" style="max-width:260px;height:auto;display:block" />' +
+            '<img src="' + logoUrl + '" alt="Metin Tiryaki — Yapay Zeka Eğitimi" style="max-width:260px;height:auto;display:block" />' +
           "</td></tr>" +
           '<tr><td style="padding:0 24px 8px 24px;font-size:18px;font-weight:700;color:#0f3f5f">Yapay Zeka Sınav Sonucu</td></tr>' +
           '<tr><td style="padding:0 24px 16px 24px;font-size:15px">Sayın ' + escapeHtml(name) + ',</td></tr>' +
@@ -199,7 +199,7 @@ function sendResultEmail(name, email, score, correct, wrong, empty, time, passed
           "</td></tr>" +
           '<tr><td style="padding:0 24px 20px 24px;font-size:15px">' + resultNote + "</td></tr>" +
           '<tr><td style="padding:16px 24px 24px 24px;border-top:1px solid #e5e7eb;color:#4b5563;font-size:14px">' +
-            "Eğitmen: Metin Tiryaki<br/>NEWFOUND CREATIVE ACADEMY" +
+            "Eğitmen: Metin Tiryaki<br/><a href=\"https://www.metintiryaki.com\">www.metintiryaki.com</a>" +
           "</td></tr>" +
         "</table>" +
       "</td></tr>" +
